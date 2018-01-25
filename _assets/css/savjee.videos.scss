@@ -23,21 +23,51 @@
     overflow: hidden;
 }
 
-.video-navigation{
-    font-size: 0.8em;
+.videoNavigation{
+    display: flex;
+    align-items:center;
     background-color: #F0F0F0;
-    padding: 15px;
+    font-size: 0.8em;
     min-height: 100px;
+    padding: 15px;
+
+    p{
+        margin:0;
+    }
+
+    strong{
+        color: #000;
+        text-decoration: none;
+        display:inline-block;
+    }
+
+    div{
+        flex:1;
+    }
+
+    div.nextVideo{
+        text-align:right;
+    }
 }
 
-.video-navigation p{
-    margin:0;
-}
+// Container for a series on the "Video" page
+.video-details{
+    .next-to-each-other{
+        display:flex;
+    }
 
-.video-navigation strong{
-    color: #000;
-    text-decoration: none;
-    display:inline-block;
+    .thumb, .description{
+        flex:1;
+    }
+
+    .thumb{
+        max-width: 220px;
+        position: relative; // for the play button overlay
+
+        img{
+            max-width: 200px;
+        }
+    }
 }
 
 .video-serieList{
@@ -51,7 +81,17 @@
         -moz-column-count: 1;
     }
 
-    .video-navigation.empty{
-        display:none;
+    // Previous and Next video shouldn't be in 2 column layout anymore
+    .videoNavigation{
+        display: block;
+    }
+
+    .video-details{
+        .thumb, .thumb img{
+            max-width: initial;
+        }
+        .next-to-each-other{
+            display:block;
+        }
     }
 }
