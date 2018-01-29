@@ -15,8 +15,11 @@
     <link rel="mask-icon" href="/assets/favicon/safari-pinned.svg" color="#5bbad5">
 
     {% css bundle %}
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+
 
     <meta name="p:domain_verify" content="ee843ddad91f8b4384f2f3a13a714e2d"/>
+
 
     {% if page.thumbnail %}
     <!-- Twitter tags -->
@@ -41,6 +44,31 @@
 
 <header class="site-header" role="banner">
     <div class="container">
+
+        <div class="navwrapper">
+                <div class="logo">
+                        <a href='/'>
+                            <img alt="" src="/assets/img/logo.svg" height="100">
+                        </a>
+                </div>
+
+                <div class="navigation">
+                    <nav>
+                        <ul>
+                            <li><a href="/" class="{% if page.url == '/' %}active{% endif %}">Home</a></li>
+                            <li><a href="/posts.html" class="{% if page.url == '/posts.html' %}active{% endif %}">Blog</a></li>
+                            <li><a href="/videos/" class="{% if page.url == '/videos/' %}active{% endif %}">Videos</a></li>
+                            <!-- <li><a href="/bookshelf/" class="{% if page.url == '/bookshelf/' %}active{% endif %}">Bookshelf</a></li> -->
+                            <li><a href="/about.html/" class="{% if page.url == '/about.html' %}active{% endif %}">About me</a></li>
+                        </ul>
+                    </nav>
+                </div>
+        </div>
+
+
+    </div>
+
+    <!-- <div class="container">
         <div class="avatar">
             <a href='https://www.savjee.be/'>
                 <img alt="" src="/assets/img/logo.svg" height="100">
@@ -64,19 +92,19 @@
         </nav>
 
         <div class="clear"></div>
-    </div><!--/container -->
+    </div> -->
 </header>
 
-<div class='container'>
+<!-- <div class='container'> -->
     {{ content | extlinks }}
-</div>
+<!-- </div> -->
 
 <footer>
     <p>Copyright 2018, Xavier Decuyper</p>
 
     <p>
         <a href="/atom.xml">RSS feed</a> - <a href="https://github.com/Savjee" target='_blank'>Github</a> - <a
-            href="https://twitter.com/Savjee/" target='_blank'>Twitter</a> - <a href="https://www.facebook.com/savjee" target="_blank">Facebook</a> - <a href="https://www.youtube.com/channel/UCnxrdFPXJMeHru_b4Q_vTPQ" target='_blank'>YouTube</a>
+            href="https://twitter.com/Savjee/" target='_blank'>Twitter</> - <a href="https://www.facebook.com/savjee" target="_blank">Facebook</a> - <a href="https://www.youtube.com/channel/UCnxrdFPXJMeHru_b4Q_vTPQ" target='_blank'>YouTube</a>
     </p>
 </footer>
 
