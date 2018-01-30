@@ -2,23 +2,23 @@
 layout: default
 ---
 
+<div class="container small">
+    <article class='post'>
+        <h1 class='post-title'>
+            <a href="{{ post.url }}">{{ page.title }}</a>
+        </h1>
 
-<article class='post'>
-    <h1 class='post-title'>
-        <a href="{{ post.url }}">{{ page.title }}</a>
-    </h1>
+        <div class="metadata">
+            <span>Posted on <time class='date' datetime='{{ page.date | date: "%Y-%m-%dT00:00:00+01:00" }}'>{{ page.date | date_to_string }}</time></span>
+        </div>
 
-    <div class='post-description'>
-        {{ content }}
-    </div>
-</article>
+        <div class='post-description'>
+            {{ content }}
+        </div>
+    </article>
 
-<p style="text-align:center;">
-    <small>Posted on
-        <time class='date' datetime='{{ page.date | date: "%Y-%m-%dT00:00:00+01:00" }}'>{{ page.date | date_to_string }}</time>
-    </small>
-</p>
 
-{% include share-buttons.html %}
+    {% include share-buttons.html %}
 
-{% include disqus-comments.html %}
+    {% include disqus-comments.html %}
+</div>

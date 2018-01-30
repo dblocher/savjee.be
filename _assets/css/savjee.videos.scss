@@ -1,97 +1,99 @@
-.videowrapper {
-    float: none;
-    clear: both;
-    width: 100%;
-    position: relative;
-    padding-bottom: 56.25%;
-    padding-top: 0;
-    height: 0;
-}
-.videowrapper iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
 
-.hide-overflow-text{
-    white-space: nowrap;
-    overflow: hidden;
-    display: block;
-    text-overflow: ellipsis;
-    overflow: hidden;
-}
 
-.videoNavigation{
-    display: flex;
-    align-items:center;
-    background-color: #F0F0F0;
-    font-size: 0.8em;
-    min-height: 100px;
-    padding: 15px;
+// .videowrapper {
+//     float: none;
+//     clear: both;
+//     width: 100%;
+//     position: relative;
+//     padding-bottom: 56.25%;
+//     padding-top: 0;
+//     height: 0;
+// }
+// .videowrapper iframe {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+//     width: 100%;
+//     height: 100%;
+// }
 
-    p{
-        margin:0;
-    }
+// .hide-overflow-text{
+//     white-space: nowrap;
+//     overflow: hidden;
+//     display: block;
+//     text-overflow: ellipsis;
+//     overflow: hidden;
+// }
 
-    strong{
-        color: #000;
-        text-decoration: none;
-        display:inline-block;
-    }
+// .videoNavigation{
+//     display: flex;
+//     align-items:center;
+//     background-color: #F0F0F0;
+//     font-size: 0.8em;
+//     min-height: 100px;
+//     padding: 15px;
 
-    div{
-        flex:1;
-    }
+//     p{
+//         margin:0;
+//     }
 
-    div.nextVideo{
-        text-align:right;
-    }
-}
+//     strong{
+//         color: #000;
+//         text-decoration: none;
+//         display:inline-block;
+//     }
 
-// Container for a series on the "Video" page
-.video-details{
-    .next-to-each-other{
-        display:flex;
-    }
+//     div{
+//         flex:1;
+//     }
 
-    .thumb, .description{
-        flex:1;
-    }
+//     div.nextVideo{
+//         text-align:right;
+//     }
+// }
 
-    .thumb{
-        max-width: 220px;
-        position: relative; // for the play button overlay
+// // Container for a series on the "Video" page
+// .video-details{
+//     .next-to-each-other{
+//         display:flex;
+//     }
 
-        img{
-            max-width: 200px;
-        }
-    }
-}
+//     .thumb, .description{
+//         flex:1;
+//     }
 
-.video-serieList{
-    column-count: 2;
-    -moz-column-count: 2;
-}
+//     .thumb{
+//         max-width: 220px;
+//         position: relative; // for the play button overlay
 
-@media (max-width: 767px) {
-    .video-serieList{
-        column-count: 1;
-        -moz-column-count: 1;
-    }
+//         img{
+//             max-width: 200px;
+//         }
+//     }
+// }
 
-    // Previous and Next video shouldn't be in 2 column layout anymore
-    .videoNavigation{
-        display: block;
-    }
+// .video-serieList{
+//     column-count: 2;
+//     -moz-column-count: 2;
+// }
 
-    .video-details{
-        .thumb, .thumb img{
-            max-width: initial;
-        }
-        .next-to-each-other{
-            display:block;
-        }
-    }
-}
+// @media (max-width: 767px) {
+//     .video-serieList{
+//         column-count: 1;
+//         -moz-column-count: 1;
+//     }
+
+//     // Previous and Next video shouldn't be in 2 column layout anymore
+//     .videoNavigation{
+//         display: block;
+//     }
+
+//     .video-details{
+//         .thumb, .thumb img{
+//             max-width: initial;
+//         }
+//         .next-to-each-other{
+//             display:block;
+//         }
+//     }
+// }

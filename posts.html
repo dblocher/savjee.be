@@ -5,7 +5,7 @@ permalink: posts.html
 quote: Overview of blog posts on Savjee.be
 ---
 
-
+<div class="container">
 {% for post in site.posts  %}
     {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
     {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
@@ -55,3 +55,4 @@ quote: Overview of blog posts on Savjee.be
         {% endif %}
     {% endif %}
 {% endfor %}
+</div>

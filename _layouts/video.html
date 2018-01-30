@@ -1,79 +1,69 @@
 ---
 layout: default
 ---
+{% assign serieData = site.data.videos.series[page.series] %}
+{% assign videosInThisSerie = site.videos | where_exp:'vid','vid.series == page.series' | sort: 'order' %}
+{% assign tmp = page.order | minus: 2 %}
 
-<div style="background-color: #423E45;">
-    <div class="container">
-        <article class='post'>
-            <h1 class='post-title' style="text-align:center">
-                <a href="{{ post.url }}" style="color: #fff;">{{ page.title }}</a>
-            </h1>
+<div class="videoDetailsPage">
+    <div class="dark-backdrop">
+        <div class="container">
+            <div class="videowrapper">
+                {% if page.order != 1 %}
+                    <a href="{{videosInThisSerie[tmp].url}}">
+                        <div class="arrow previous"></div>
+                    </a>
+                {% endif %}
+                <iframe src="https://www.youtube.com/embed/{{page.videoId}}?list={{serieData.playlistId}}&showinfo=0" frameborder="0" allowfullscreen></iframe>
 
-            <div class='post-description'>
-                {% assign serieData = site.data.videos.series[page.series] %}
+                {% if page.order >= 1 and page.order < videosInThisSerie.size %}
 
-                <div class="videowrapper">
-                    <iframe src="https://www.youtube.com/embed/{{page.videoId}}?list={{serieData.playlistId}}&showinfo=0" frameborder="0" allowfullscreen></iframe>
-                </div>
-            </div>
-        </article>
-    </div>
-</div>
-
-<div class="container">
-    <!-- <div class="videoNavigation">
-                {% assign videosInThisSerie = site.videos | where_exp:'vid','vid.series == page.series' | sort: 'order' %}
-                {% assign tmp = page.order | minus: 2 %}
-
-                <div>
-                    {% if page.order != 1 %}
-                        <div class="video-">
-                            <a href="{{videosInThisSerie[tmp].url}}">
-                                <p><strong>&larr; Previous video</strong><br>
-                                    <span class="hide-overflow-text">{{videosInThisSerie[tmp].title}}</span>
-                                </p>
-                            </a>
-                        </div>
-                    {% endif %}
-                </div>
-
-                <div class="nextVideo">
-                    {% if page.order >= 1 and page.order < videosInThisSerie.size %}
-                        <div class="video-">
                             <a href="{{videosInThisSerie[page.order].url}}">
-                                <p>
-                                    <strong>Next video &rarr;</strong><br>
-                                    <span class="hide-overflow-text">{{videosInThisSerie[page.order].title}}</span>
-                                </p>
+                                    <div class="arrow next"></div>
                             </a>
-                        </div>
                     {% endif %}
-                </div>
-            </div> -->
+            </div>
+        </div>
+    </div>
 
-    <article class='post'>
-        <div class='post-description'>
-
-
+    <div class="container">
+        <article>
             <div class="row">
                 <div class="col-md-8">
+                    <h1 class='title'>{{ page.title }}</h1>
                     {{ content }}
                 </div>
 
-                <div class="col-md-4">
-                    Share...
-                    <br> Details...
-                    <br>
+                <div class="col-md-4 videosidebar">
+                    <h1 class="title"></h1>
+
+                    <div>
+                        <b>UPLOADED</b><br>
+                        {{page.uploadDate}}
+                    </div>
+
+                    <div>
+                        <b>SHARE</b>
+                        <p style="margin:0;">
+                        <img src="/assets/img/social/facebook.svg" style="width:16px; display:inline-block; margin-left: 5px;opacity:0.3;">
+                        <img src="/assets/img/social/twitter.svg" style="width:16px; display:inline-block; margin-left: 5px;opacity:0.3;">
+                        <img src="/assets/img/social/reddit.svg"  style="width:16px; display:inline-block; margin-left: 5px;opacity:0.3;">
+                        <img src="/assets/img/social/pocket.svg" style="width:16px; display:inline-block; margin-left: 5px;opacity:0.3;">
+                        <img src="/assets/img/social/pinterest.svg" style="width:16px; display:inline-block; margin-left: 5px;opacity:0.3;">
+                        <img src="/assets/img/social/linkedin.svg" style="width:16px; display:inline-block; margin-left: 5px;opacity:0.3;">
+                        </p>
+                    </div>
                 </div>
             </div>
+        </article>
 
-        </div>
-    </article>
-
-
-
-    {% include youtube-subscribebutton.html %} {% include disqus-comments.html %}
+            <!-- {% include youtube-subscribebutton.html %} {% include disqus-comments.html %} -->
+    </div>
 </div>
+
+
+
+
 
 <!-- *********** Structured data for Google *********** -->
 <script type="application/ld+json">
