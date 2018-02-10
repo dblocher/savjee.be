@@ -18,7 +18,10 @@ body {
 }
 
 header {
-  // background-color: #fff;
+  &.white{
+    background-color:#fff;
+  }
+  background-color: #F5F5F5;
 
   .container {
     max-width: 1140px;
@@ -410,9 +413,25 @@ article {
 
   .post-description {
     h1 {
-      font-size: 1.5em; // make it look like an H2
-      margin-bottom: -0.5em;
-      margin-top: 2em;
+      position:relative;
+      display: inline-block;
+      background-color: #fff;
+      padding-right: 30px;
+      margin-top: 40px;
+      margin-bottom: 0;
+
+      &:after{
+        z-index: -1;
+        content: '';
+        display: block;
+        position: absolute;
+        top: 60%;
+        left: 0;
+        width: 720px;
+        height: 1px;
+        margin-top: -1px;
+        background-color: #ccc
+      }
     }
 
     h2 {
@@ -427,7 +446,7 @@ article {
   }
 
   h1 a, h1 {
-    font-family: 'Playfair Display', serif;
+    // font-family: 'Playfair Display', serif;
     color: #404040;
     font-size: 1.4em;
     font-weight: 700;
@@ -458,7 +477,7 @@ hr {
 
 h1.post-title {
   font-family: 'Raleway Black', sans-serif;
-  font-size: 35px;
+  font-size: 45px;
   font-weight: 800;
   line-height: 50px;
   text-align:center;
