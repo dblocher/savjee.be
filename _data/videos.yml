@@ -2,6 +2,7 @@ series:
   - title: "Simply explained"
     playlistId: PLzvRQMJ9HDiSbvXWQ7OdgVccdr7Wni5Qw
     description: Simply Explained is all about taking a complex subject and explaining it in plain English.
+    showLatestFirst: true
     wip: true
 
   - title: "Serverless Framework"
@@ -15,6 +16,7 @@ series:
   - title: "Great Mac Apps"
     playlistId: PLzvRQMJ9HDiStnho-YPF9N3ROqDlESPqD
     description: In this series I will show you some great Mac applications. Apps that have a beautiful design, pack a lot features, are innovative or incredibly useful. These are my personal recommendations.
+    showLatestFirst: true
 
   - title: "Learning TypeScript"
     playlistId: PLzvRQMJ9HDiQyjtcrtvDkeQMJIrv5ABbm

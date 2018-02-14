@@ -9,63 +9,68 @@ whiteheader: true
 {% assign series = site.data.videos.series %}
 
 
+<script type="text/javascript">
+    function showMore(playlistId){
+        const element = document.querySelector('#' + playlistId);
+
+        if(element.className === ''){
+            element.className = 'expanded';
+        }else{
+            element.className = '';
+        }
+    }
+</script>
+
 <div style="background-color: #eee;">
     <div class="container">
 
         {% for serie in series %}
             {% assign vidsInSerie = site.videos | where_exp:'vid','vid.series == serie.title' | sort: 'order' %}
-            {% assign modulo = forloop.index0 | modulo:3  %}
 
-            <!-- Large card-->
-            {% if modulo == 0 %}
+            {% if serie.showLatestFirst %}
+                <!-- Reverse the order of the videos so the newest ones come first -->
+                {% assign vidsInSerie = vidsInSerie | reverse %}
+            {% endif %}
+
+
             <div class="card">
                     <h1 style="margin:0;">{{serie.title}}</h1>
                     <p>{{serie.description}}</p>
 
                     <div class="row">
                         {% for vid in vidsInSerie limit:4 %}
-                            <div class="col-md-3">
-                                <img class="" src="//i.ytimg.com/vi/{{vid.videoId}}/mqdefault.jpg" style="max-width: 100%">
-                                <br><a href="{{vid.url}}">{{vid.title}}</a>
+                            <div class="col-md-3 text-center">
+                                <div style="position: relative">
+                                    <a href="{{vid.url}}" class="videoLink">
+                                        <img class="" src="//i.ytimg.com/vi/{{vid.videoId}}/mqdefault.jpg" style="max-width: 100%">
+                                        <img src="/assets/img/play-button.svg" width="60" height="60" style="position: absolute;top: calc(50% - 30px);left: calc(50% - 30px);right: 0;margin:0;">
+                                    </a>
+                                </div>
+
+                                <a href="{{vid.url}}" class="videoLink">
+                                    {{vid.title}}
+                                </a>
                             </div>
                         {% endfor %}
                     </div>
+
+                    {% if vidsInSerie.size > 4 %}
+                    <div class="showMore">
+                        <p onclick="showMore('{{serie.playlistId}}')">{{vidsInSerie.size | minus:4}} more videos...</p>
+
+                        <div id="{{serie.playlistId}}">
+                            <ul style="column-count: 3" >
+                                {% for vid in vidsInSerie offset:4  %}
+                                    <li><a href="{{vid.url}}">{{vid.title}}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+
+                    {%endif%}
             </div>
-            {% endif %}
-
-
-            {% if modulo == 1 %}
-            <div class="row">
-                    <div class="col-md-5">
-                        <div class="card">
-                            <img class="" src="//i.ytimg.com/vi/{{vidsInSerie[0].videoId}}/mqdefault.jpg" style="max-width: 100%">
-                        </div>
-                    </div>
-                    <div class="col-md-7">
-                        <div class="card">
-                            <img class="" src="//i.ytimg.com/vi/{{vidsInSerie[0].videoId}}/mqdefault.jpg" style="max-width: 100%">
-                        </div>
-                    </div>
-                </div>
-            {% endif %}
-
-            {% if modulo == 2 %}
-            <div class="row">
-                    <div class="col-md-7">
-                        <div class="card">HI</div>
-                    </div>
-                    <div class="col-md-5">
-                        <div class="card">hi</div>
-                    </div>
-                </div>
-            {% endif %}
-
-
-
-
         {% endfor %}
-
-
     </div>
 </div>
 

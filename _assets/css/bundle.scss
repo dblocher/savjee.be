@@ -1,9 +1,16 @@
-@import 'savjee';
-@import 'savjee.videos';
+
 @import 'timeline';
 @import 'social-buttons';
 @import 'bookshelf';
 @import 'citations';
+
+// Components
+@import 'savjee';
+@import 'savjee.colors';
+@import 'savjee.videos';
+@import 'savjee.header';
+@import 'savjee.codeblocks';
+
 
 // External dependencies
 @import 'lib/code-highlighter';

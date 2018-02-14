@@ -1,0 +1,29 @@
+@import 'savjee.colors';
+
+pre,
+code {
+  overflow-x: auto;
+  word-break: normal !important;
+  word-wrap: normal !important;
+  white-space: pre !important;
+}
+
+pre,
+p code,
+li code {
+  background-color: #f8f8f8;
+  border: solid 1px #d1d1d1;
+}
+
+pre {
+  padding: 1em;
+  font-size: 0.8em;
+  line-height: 1.5;
+}
+
+p code,
+li code {
+  font-size: 1em;
+  padding: 2px 5px;
+  margin: 0 2px;
+}

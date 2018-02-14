@@ -3,93 +3,132 @@ layout: default
 title: Home
 whiteheader: true
 ---
+{% assign sortedVideos = site.videos | sort: 'uploadDate' | reverse %}
 
-	<div class="home">
-		<div class="container">
-				<div class="row">
-						<div class="col-md-6">
-							<div class="card">
-									Hi there
-							</div>
+
+<div class="home">
+	<div class="container">
+		{% for post in paginator.posts %}
+		{% assign module = forloop.index0 |modulo:2 %}
+
+		{% if module == 0 %}
+		<div class="row row-eq-height">
+			<div class="col-md-7">
+				<div class="card">
+					<article class='post'>
+						<h1 class='post-title'>
+							<a href="{{ post.url }}">{{ post.title }}</a>
+						</h1>
+
+						<div class='post-description'>
+							{{ post.excerpt }}
+
+							<p>
+								<a href='{{ post.url }}'>Continue reading &rarr;</a>
+							</p>
 						</div>
-						<div class="col-md-6">
-								<div class="card video">
-									<img src="/assets/img/play-button.svg" width="60" height="60" style="position: absolute;top: calc(50% - 30px);left: calc(50% - 30px);right: 0;">
-									<img class="" src="//i.ytimg.com/vi/ZE2HxTmxfrI/maxresdefault.jpg">
+					</article>
+				</div>
+			</div>
+			<div class="col-md-5">
+				<div class="card">
+					<article class='post'>
+						{% assign latestVideo = sortedVideos[forloop.index0] %}
+						<h1 class="post-title">{{latestVideo.title}}</h1>
+						<div style="position: relative;" class="text-center">
+							<a href="{{latestVideo.url}}">
+								<img src="/assets/img/play-button.svg" width="60" height="60" style="position: absolute;top: calc(50% - 30px);left: calc(50% - 30px)">
+								<img class="" src="//i.ytimg.com/vi/{{latestVideo.videoId}}/maxresdefault.jpg">
+							</a>
+						</div>
+					</article>
+				</div>
+			</div>
+		</div>
+		{% else %}
+		<div class="row row-eq-height">
+				<div class="col-md-5">
+						<div class="card">
+							<article class='post'>
+								{% assign latestVideo = sortedVideos[forloop.index0] %}
+								<h1 class="post-title">{{latestVideo.title}}</h1>
+								<div style="position: relative;" class="text-center">
+									<a href="{{latestVideo.url}}">
+										<img src="/assets/img/play-button.svg" width="60" height="60" style="position: absolute;top: calc(50% - 30px);left: calc(50% - 30px)">
+										<img class="" src="//i.ytimg.com/vi/{{latestVideo.videoId}}/maxresdefault.jpg">
+									</a>
 								</div>
+
+							</article>
 						</div>
 					</div>
-
-
-
-				{% for post in paginator.posts %}
-				<div class="card">
+				<div class="col-md-7">
+					<div class="card">
 						<article class='post'>
-								<h1 class='post-title'>
-									<a href="{{ post.url }}">{{ post.title }}</a>
-								</h1>
+							<h1 class='post-title'>
+								<a href="{{ post.url }}">{{ post.title }}</a>
+							</h1>
 
-								<div class='post-description'>
-									{{ post.excerpt }}
+							<div class='post-description'>
+								{{ post.excerpt }}
 
-									<p><a href='{{ post.url }}'>Continue reading &rarr;</a></p>
-								</div>
-							</article>
+								<p>
+									<a href='{{ post.url }}'>Continue reading &rarr;</a>
+								</p>
+							</div>
+						</article>
+					</div>
 				</div>
-				{% endfor %}
-
-		</div>
-
+			</div>
+			{% endif %}
+		{% endfor %}
 	</div>
+</div>
 
-
-	{% if paginator.previous_page %}
-		<h1 class='content-subhead'>Page {{paginator.page}}</h1>
-	{% endif %}
-
-	{% for post in paginator.posts %}
-	<article class='post'>
-		<h1 class='post-title'>
-			<a href="{{ post.url }}">{{ post.title }}</a>
-		</h1>
-
-		<div class='post-description'>
-			{{ post.excerpt }}
-
-			<p><a href='{{ post.url }}'>Continue reading &rarr;</a></p>
-		</div>
-	</article>
-
-	<hr>
-
-	{% endfor %}
-
-{% if paginator.previous_page == nil %}
-	<h1 class='post-title'>Older posts</h1>
-	<div class='post-description'>
-		<ul class='older-posts'>
-			{% for post in site.posts limit:6 offset: 3 %}
-				<li><a href='{{post.url}}'>{{post.title}}</a></li>
-			{% endfor %}
-		</ul>
-	</div>
+<!--
+{% if paginator.previous_page %}
+<h1 class='content-subhead'>Page {{paginator.page}}</h1>
 {% endif %}
 
+{% for post in paginator.posts %}
+<article class='post'>
+	<h1 class='post-title'>
+		<a href="{{ post.url }}">{{ post.title }}</a>
+	</h1>
+
+	<div class='post-description'>
+		{{ post.excerpt }}
+
+		<p>
+			<a href='{{ post.url }}'>Continue reading &rarr;</a>
+		</p>
+	</div>
+</article>
+
+<hr>
+{% endfor %}
+
+{% if paginator.previous_page == nil %}
+<h1 class='post-title'>Older posts</h1>
+<div class='post-description'>
+	<ul class='older-posts'>
+		{% for post in site.posts limit:6 offset: 3 %}
+		<li>
+			<a href='{{post.url}}'>{{post.title}}</a>
+		</li>
+		{% endfor %}
+	</ul>
+</div>
+{% endif %} -->
+
 <p style='text-align:center; margin-top: 30px;'>
-	{% if paginator.previous_page %}
-		{% if paginator.previous_page == 1 %}
-			<a href='/'>&larr; Previous page</a>
-		{% else %}
-			<a href='/page{{paginator.previous_page}}/'>&larr; Previous page</a>
-		{% endif %}
-	{% endif %}
-
-	{% if paginator.next_page and paginator.previous_page %}
-		|
-	{% endif %}
-
-	{% if paginator.next_page %}
-		<a href='/page{{paginator.next_page}}/'>Next page &rarr;</a>
+	{% if paginator.previous_page %} {% if paginator.previous_page == 1 %}
+	<a href='/'>&larr; Previous page</a>
+	{% else %}
+	<a href='/page{{paginator.previous_page}}/'>&larr; Previous page</a>
+	{% endif %} {% endif %} {% if paginator.next_page and paginator.previous_page %} | {% endif %} {% if paginator.next_page
+	%}
+	<a href='/page{{paginator.next_page}}/'>Next page &rarr;</a>
 	{% endif %}
 </p>
 
