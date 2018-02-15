@@ -121,11 +121,11 @@ whiteheader: true
                 {% endfor %}
         </div> -->
 
-        <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
-
+<script src="/assets/js/scrollreveal.min.js"></script>
 <script type="text/javascript">
-const sr = ScrollReveal({
-	mobile: false,
+document.addEventListener("DOMContentLoaded", function(event) {
+    ScrollReveal({
+        mobile: false,
+    }).reveal('.card');
 });
-sr.reveal('.card');
 </script>
