@@ -69,18 +69,6 @@ article{
 
 .home{
   background-color: #eee;
-
-  // Cards on the homepage should fill the entire height of the row!
-  // .col-md-7{
-  //   .card{
-  //     position:absolute;
-  //     top:0;
-  //     right:0;
-  //     bottom:0;
-  //     left:0;
-  //   }
-  // }
-
 }
 
 .card {
@@ -165,10 +153,7 @@ article{
 
 .container {
   max-width: 1140px;
-  // max-width: 720px;
-  // padding: 20px;
   margin: 0 auto;
-  // position: relative;
 
   &.single {
     padding-top: 0;
