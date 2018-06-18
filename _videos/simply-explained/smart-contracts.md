@@ -6,6 +6,7 @@ videoId: ZE2HxTmxfrI
 order: 3
 series: Simply explained
 uploadDate: 2017-11-20
+featureable: true
 ---
 
 Smart contracts are tiny applications that run on a blockchain. The biggest smart contract platform is Ethereum.

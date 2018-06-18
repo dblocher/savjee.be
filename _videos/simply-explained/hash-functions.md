@@ -6,6 +6,7 @@ videoId: cczlpiiu42M
 order: 13
 series: Simply explained
 uploadDate: 2018-04-03
+featureable: true
 ---
 
 How can companies store passwords safely and keep them away from hackers? Well let's find out!

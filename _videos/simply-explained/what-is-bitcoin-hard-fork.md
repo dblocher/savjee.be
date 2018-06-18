@@ -6,6 +6,7 @@ videoId: XCo6yyutYAM
 order: 4
 series: Simply explained
 uploadDate: 2017-12-04
+featureable: true
 ---
 
 Recently we’ve heard about a Bitcoin hard fork. But what is a hard ford?

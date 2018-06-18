@@ -22,8 +22,42 @@ whiteheader: true
 </script>
 
 <div style="background-color: #eee;">
-    <div class="container">
+    <div style="background-color: #423e45;">
+        <div class="container">
+            {% assign featureableVideos = site.videos | where_exp:'vid','vid.featureable == true' | sort: 'uploadDate' | limit:5 | reverse %}
 
+            <br>
+            <div class="row">
+                <div class="col-md-6 featuredVideo" style="position:relative;">
+                    {% assign featureableVid = featureableVideos[0] %}
+                    {% include video-preview-box.html video=featureableVid %}
+                </div>
+
+                <div class="col-md-6 featuredVideo" style="position:relative;">
+                    {% assign featureableVid = featureableVideos[1] %}
+                    {% include video-preview-box.html video=featureableVid %}
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-4 featuredVideo">
+                    {% assign featureableVid = featureableVideos[2] %}
+                    {% include video-preview-box.html video=featureableVid %}
+                </div>
+                <div class="col-md-4 featuredVideo">
+                    {% assign featureableVid = featureableVideos[3] %}
+                    {% include video-preview-box.html video=featureableVid %}
+                </div>
+                <div class="col-md-4 featuredVideo">
+                    {% assign featureableVid = featureableVideos[4] %}
+                    {% include video-preview-box.html video=featureableVid %}
+                </div>
+            </div>
+        </div>
+        <br>
+    </div>
+
+    <div class="container">
         {% for serie in series %}
             {% assign vidsInSerie = site.videos | where_exp:'vid','vid.series == serie.title' | sort: 'order' %}
 
@@ -126,6 +160,6 @@ whiteheader: true
 document.addEventListener("DOMContentLoaded", function(event) {
     ScrollReveal({
         mobile: false,
-    }).reveal('.card');
+    }).reveal('.card, .featuredVideo');
 });
 </script>
