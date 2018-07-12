@@ -51,6 +51,9 @@ redirects:
    contact.html: /about.html
    about-me/index.html: /about.html
    projects/xaviers-anagram/index.html: /anagramsolver.html
+   about.html: /about/
+   posts.html: /posts/
+
 
 # routing_rules:
 #   - condition:
