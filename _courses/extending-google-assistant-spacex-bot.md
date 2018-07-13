@@ -1,7 +1,7 @@
 ---
 layout: post
 collection: courses
-title: Building an action for Google
+title: Extending the Google Assistant (with a SpaceX bot!)
 order: 1
 uploadDate: 2018-04-30
 link_udemy: https://www.udemy.com/building-your-own-action-on-google/?couponCode=SAVJEE
