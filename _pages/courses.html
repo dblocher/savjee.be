@@ -1,0 +1,60 @@
+---
+layout: page
+title: Courses
+paginate:
+collection: courses
+whiteheader: true
+permalink: /courses/
+---
+
+{% assign courses = site.courses | sort: 'uploadDate' | reverse %}
+
+
+
+<div style="background-color: #eee;">
+    <div class="container">
+        {% for course in courses %}
+            <div class="card">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{course.id}}.jpg">
+                    </div>
+
+                    <div class="col-md-8">
+                        <h1 style="margin:0;">{{course.title}}</h1>
+                        <p>{{course.excerpt}}</p>
+
+                        <div>
+                            Available on:
+
+                            {% if course.link_udemy %}
+                                <div class="badge udemy">
+                                    <a href="{{course.link_udemy}}" target="_blank">Udemy</a></div>
+                            {% endif %}
+
+                            {% if course.link_skillshare %}
+                                <div class="badge skillshare">
+                                    <a href="{{course.link_skillshare}}" target="_blank">Skillshare</a>
+                                </div>
+                            {% endif %}
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <br><br>
+</div>
+
+<script src="/assets/js/scrollreveal.min.js"></script>
+<script type="text/javascript">
+document.addEventListener("DOMContentLoaded", function(event) {
+    ScrollReveal({
+        mobile: false,
+    }).reveal('.card, .featuredVideo');
+});
+</script>

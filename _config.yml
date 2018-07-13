@@ -17,6 +17,9 @@ collections:
     permalink: /videos/:path/
   pages:
     output: true
+  courses:
+    output: true
+    permalink: /courses/:path/
 
 excerpt_separator: <!--more-->
 

@@ -1,0 +1,22 @@
+.badge{
+    display:inline-block;
+    padding: 1px 5px;
+    background-color: #ddd;
+    color: #fff;
+    border-radius: 3px;
+    margin-right: 10px;
+
+    a{
+        color: #fff;
+        text-decoration:none;
+        font-size: 0.8em;
+    }
+
+    &.skillshare{
+        background-color: #34C4C6;
+    }
+
+    &.udemy{
+        background-color: #645A53;
+    }
+}
