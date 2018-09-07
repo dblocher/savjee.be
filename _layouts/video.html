@@ -47,10 +47,21 @@ layout: default
                     <div class="share-buttons-new">
                         <b>SHARE</b>
                         <p style="margin:0;">
-                        <img src="/assets/img/social/facebook.svg" style="width:16px; display:inline-block; margin-left: 5px;">
-                        <img src="/assets/img/social/twitter.svg" style="width:16px; display:inline-block; margin-left: 5px;">
-                        <img src="/assets/img/social/reddit.svg"  style="width:16px; display:inline-block; margin-left: 5px;">
-                        <img src="/assets/img/social/linkedin.svg" style="width:16px; display:inline-block; margin-left: 5px;">
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{'https://youtu.be/' | URLEncoding}}{{page.videoId | cgi_escape}}" target="_blank">
+                                <img src="/assets/img/social/facebook.svg" style="width:16px; display:inline-block; margin-left: 5px;">
+                            </a>
+
+                            <a href="https://twitter.com/share?url={{'https://youtu.be/' | URLEncoding}}{{page.videoId | cgi_escape}}&text={{page.title | URLEncoding}}&via=Savjee" target="_blank">
+                                <img src="/assets/img/social/twitter.svg" style="width:16px; display:inline-block; margin-left: 5px;">
+                            </a>
+
+                            <a href="http://www.reddit.com/submit?url={{'https://youtu.be/' | URLEncoding}}{{page.videoId | cgi_escape}}&title={{page.title | cgi_escape}}" target="_blank">
+                                <img src="/assets/img/social/reddit.svg"  style="width:16px; display:inline-block; margin-left: 5px;">
+                            </a>
+
+                            <a href="" target="_blank">
+                                <img src="/assets/img/social/linkedin.svg" style="width:16px; display:inline-block; margin-left: 5px;">
+                            </a>
                         </p>
                     </div>
                 </div>
