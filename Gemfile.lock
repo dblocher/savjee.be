@@ -153,7 +153,7 @@ DEPENDENCIES
   citeproc-ruby
   csl-styles
   html-proofer
-  jekyll (= 3.7.3)
+  jekyll
   jekyll-assets
   jekyll-extlinks
   jekyll-paginate
