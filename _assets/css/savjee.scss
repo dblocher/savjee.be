@@ -7,14 +7,14 @@
 }
 
 body {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Merriweather', sans-serif;
   margin: 0;
   padding: 0;
   font-size: 17px;
 }
 
 a{
-  color: #000;
+  color: $mainTextColor;
   text-decoration: underline;
   transition: text-decoration 0.4s;
 
@@ -36,7 +36,7 @@ h1{
 
   // If it's the title of a page
   &.title{
-    font-family: 'Raleway Black', sans-serif;
+    font-family: 'Merriweather', sans-serif;
     text-align:center;
     font-size: 55px;
     line-height: 65px;
@@ -55,15 +55,16 @@ h1{
 
 article{
   h1{
-    font-size: 30px;
-  }
-
-  h2{
     font-size: 25px;
   }
 
-  h3{
+  h2{
+    margin-top: 35px;
     font-size: 20px;
+  }
+
+  h3{
+    font-size: 15px;
   }
 }
 
@@ -265,7 +266,11 @@ article {
   }
 
   p {
-    color: #575757;
+    color: $mainTextColor;
+  }
+
+  ul, li{
+    color: $mainTextColor;
   }
 }
 
@@ -316,8 +321,4 @@ footer {
     float: none;
     width: auto;
   }
-}
-
-.mailmunch-scrollbox {
-  width: 320px !important;
 }
