@@ -1,13 +1,19 @@
-markdown: redcarpet
+markdown: kramdown
 markdown_ext: markdown,mkd,mkdn,md
 highlighter: rouge
 permalink: /:year/:month/:title/
 safe: false
-exclude: ['s3_website.yml', 'Jenkinsfile', 'README.md', 'tmp/', 'Gemfile', 'Gemfile.lock']
-paginate: 5
+exclude: ['s3_website.yml', 'Jenkinsfile', 'README.md', 'tmp/', 'Gemfile', 'Gemfile.lock', '.jekyll-cache']
+
+pagination: 
+  enabled: true
+  collection: 'posts'
+  permalink: '/page:num/'
+  per_page: 5
+  limit: 0
 
 plugins:
-- jekyll-paginate
+- jekyll-paginate-v2
 - jekyll-assets
 - jekyll-extlinks
 
@@ -27,6 +33,10 @@ assets:
   sources:
     - "_assets/css"
     - "_assets/js"
+  caching:
+    path: ".jekyll-cache/assets"
+    type: file # Possible values: memory, file
+    enabled: true
 
 redcarpet:
     extensions: ["footnotes"]
