@@ -38,9 +38,6 @@ assets:
     type: file # Possible values: memory, file
     enabled: true
 
-redcarpet:
-    extensions: ["footnotes"]
-
 extlinks:
   attributes: {target: _blank, class: 'external', data-no-instant: 'data-no-instant'}
   rel_exclude: ['savjee.be']
